@@ -112,6 +112,7 @@ music.iter = function(Y, D, S, Sigma, iter.max = 1000, nu = 0.0001, eps = 0.01, 
   
   common.gene = intersect(names(Y), rownames(D))
   if(length(common.gene)< 0.00001*min(length(Y), nrow(D))){
+    print(common.gene )
     stop('Not enough common genes!')
   }
   Y = Y[match(common.gene, names(Y))];
@@ -273,7 +274,8 @@ music.iter.ct = function(Y, D, S, Sigma.ct, iter.max = 1000, nu = 0.0001, eps = 
   
   common.gene = intersect(names(Y), rownames(D))
   common.gene = intersect(common.gene, colnames(Sigma.ct))
-  if(length(common.gene)< 0.1*min(length(Y), nrow(D), ncol(Sigma.ct))){
+  if(length(common.gene)< 0.000001*min(length(Y), nrow(D), ncol(Sigma.ct))){
+    print(common.gene )
     stop('Not enough common genes!')
   }
   Y = Y[match(common.gene, names(Y))];
