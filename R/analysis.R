@@ -111,7 +111,7 @@ music.iter = function(Y, D, S, Sigma, iter.max = 1000, nu = 0.0001, eps = 0.01, 
   k = ncol(D); # number of cell types
   
   common.gene = intersect(names(Y), rownames(D))
-  if(length(common.gene)< 0.1*min(length(Y), nrow(D))){
+  if(length(common.gene)< 0.00001*min(length(Y), nrow(D))){
     stop('Not enough common genes!')
   }
   Y = Y[match(common.gene, names(Y))];
